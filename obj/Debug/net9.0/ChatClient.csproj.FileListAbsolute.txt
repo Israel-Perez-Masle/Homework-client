@@ -30,3 +30,4 @@
 /Users/israelperezmasle/Desktop/ChatClient/ChatClient/obj/Debug/net9.0/ChatClient.pdb
 /Users/israelperezmasle/Desktop/ChatClient/ChatClient/obj/Debug/net9.0/ChatClient.genruntimeconfig.cache
 /Users/israelperezmasle/Desktop/ChatClient/ChatClient/obj/Debug/net9.0/ref/ChatClient.dll
+/Users/israelperezmasle/Desktop/ChatClient/ChatClient/obj/Debug/net9.0/ChatClient.sourcelink.json

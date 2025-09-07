@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
+using entities;
+using System.Text.Json;
+
 
 class Program
 {
@@ -9,9 +12,9 @@ class Program
             .WithAutomaticReconnect()
             .Build();
 
-        connection.On<string, string>("ReceiveMessage", (user, message) =>
+        connection.On<string>("ReceiveMessage", (message) =>
         {
-            Console.WriteLine($"{user}: {message}");
+            Console.WriteLine($"{message}");
         });
 
         await connection.StartAsync();
@@ -19,13 +22,17 @@ class Program
 
         Console.Write("Enter your name: ");
         var name = Console.ReadLine();
+        List<Message> messageHistory = new List<Message>();
 
         while (true)
         {
             var msg = Console.ReadLine();
+            Message message = new Message(msg,name);
+            string jsonString = JsonSerializer.Serialize(message);
+
             if (msg?.ToLower() == "exit") break;
 
-            await connection.InvokeAsync("SendMessage", name, msg);
+            await connection.InvokeAsync("SendMessage",jsonString);
         }
     }
 }
