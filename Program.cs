@@ -29,6 +29,8 @@ class Program
             var msg = Console.ReadLine();
             Message message = new Message(msg,name);
             string jsonString = JsonSerializer.Serialize(message);
+            Console.Write(jsonString);
+           
 
             if (msg?.ToLower() == "exit") break;
 
